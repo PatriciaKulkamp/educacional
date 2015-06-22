@@ -38,10 +38,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Matricula.findAll", query = "SELECT m FROM Matricula m"),
     @NamedQuery(name = "Matricula.findByIdMatricula", query = "SELECT m FROM Matricula m WHERE m.idMatricula = :idMatricula"),
     @NamedQuery(name = "Matricula.findByDataMatricula", query = "SELECT m FROM Matricula m WHERE m.dataMatricula = :dataMatricula"),
-    @NamedQuery(name = "Matricula.findByDataTransferencia", query = "SELECT m FROM Matricula m WHERE m.dataTransferencia = :dataTransferencia")})
-public class Matricula implements Serializable {
-    
+})
+public class Matricula implements Serializable {    
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -52,32 +52,28 @@ public class Matricula implements Serializable {
     @NotNull
     @Column(name = "data_matricula")
     @Temporal(TemporalType.DATE)
-    private Date dataMatricula;
+    private String dataMatricula;
     
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "data_transferencia")
-    @Temporal(TemporalType.DATE)
-    
+  
    
     
     @JoinColumn(name = "id_classe", referencedColumnName = "id_classe")
     @ManyToOne(optional = false)
-    private Classe idClasse;
+    private Integer idClasse;
     
     @JoinColumn(name = "id_pletivo", referencedColumnName = "id_pletivo")
     @ManyToOne(optional = false)
-    private PeriodoLetivo idPletivo;
+    private Integer idPletivo;
     
     
     
     @JoinColumn(name = "id_situacao", referencedColumnName = "id_situacao")
     @ManyToOne(optional = false)
-    private Situacao idSituacao;
+    private Integer idSituacao;
     
     @JoinColumn(name = "id_unidade", referencedColumnName = "id_unidade")
     @ManyToOne(optional = false)
-    private UnidadeEscolar idUnidade;
+    private Integer idUnidade;
     
     
     public Matricula() {
@@ -87,9 +83,14 @@ public class Matricula implements Serializable {
         this.idMatricula = idMatricula;
     }
 
-    public Matricula(Integer idMatricula, Date dataMatricula, Date dataTransferencia) {
+    public Matricula(Integer idMatricula, String dataMatricula, Integer idClasse, Integer idPletivo, Integer idSituacao, Integer idUnidade) {
         this.idMatricula = idMatricula;
         this.dataMatricula = dataMatricula;
+        this.idClasse = idClasse;
+        this.idPletivo = idPletivo;
+        this.idSituacao = idSituacao;
+        this.idUnidade = idUnidade;
+        
        
     }
 
@@ -101,47 +102,47 @@ public class Matricula implements Serializable {
         this.idMatricula = idMatricula;
     }
 
-    public Date getDataMatricula() {
+    public String getDataMatricula() {
         return dataMatricula;
     }
 
-    public void setDataMatricula(Date dataMatricula) {
+    public void setDataMatricula(String dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
 
     
 
-    public Classe getIdClasse() {
+    public Integer getIdClasse() {
         return idClasse;
     }
 
-    public void setIdClasse(Classe idClasse) {
+    public void setIdClasse(Integer idClasse) {
         this.idClasse = idClasse;
     }
 
-    public PeriodoLetivo getIdPletivo() {
+    public Integer getIdPletivo() {
         return idPletivo;
     }
 
-    public void setIdPletivo(PeriodoLetivo idPletivo) {
+    public void setIdPletivo(Integer idPletivo) {
         this.idPletivo = idPletivo;
     }
 
    
 
-    public Situacao getIdSituacao() {
+    public Integer getIdSituacao() {
         return idSituacao;
     }
 
-    public void setIdSituacao(Situacao idSituacao) {
+    public void setIdSituacao(Integer idSituacao) {
         this.idSituacao = idSituacao;
     }
 
-    public UnidadeEscolar getIdUnidade() {
+    public Integer getIdUnidade() {
         return idUnidade;
     }
 
-    public void setIdUnidade(UnidadeEscolar idUnidade) {
+    public void setIdUnidade(Integer idUnidade) {
         this.idUnidade = idUnidade;
     }
 

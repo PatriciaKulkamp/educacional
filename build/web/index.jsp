@@ -43,6 +43,7 @@
                         <ul class="nav">
                             <li class="active"><a  href="jsp/pessoa_list.jsp" class="menuitem">Pessoa</a></li>
                             <li class="active"><a  href="jsp/curso_list.jsp" class="menuitem">Curso</a></li>
+                            <li class="active"><a  href="jsp/matricula_list.jsp" class="menuitem">Matricula</a></li>
                             <li><a href="#contact">Notícias</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Serviços <b class="caret"></b></a>

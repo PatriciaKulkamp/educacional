@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package edu.manager;
 
-import edu.to.Curso;
+
+package edu.manager;
+import edu.to.Matricula;
 import edu.to.Pessoa;
 import edu.util.HibernateUtil;
 import java.util.ArrayList;
@@ -15,35 +11,33 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
-/**
- *
- * @author Pati
- */
-public class CursoManager {
- public List<Curso> listar(){
-	 List<Curso> list = new ArrayList<>();
-	 Session s = HibernateUtil.openSession();
+public class MatriculaManager {
+
+    public List<Matricula> listar(){
+	 List<Matricula> list = new ArrayList<Matricula>();
+	 Session session = HibernateUtil.openSession();
 	 Transaction tran = null;	
 	 try {
-		 tran = s.getTransaction();
+		 tran = session.getTransaction();
 		 tran.begin();
-		 list = s.createQuery("from Curso").list(); 
+		 list = session.createQuery("from Matricula").list(); 
                  tran.commit();
 	 } catch (Exception e) {
+		 e.printStackTrace();
 	 } finally {
-                 s.flush();
-		 s.close();
+                 session.flush();
+		 session.close();
 	 }
 	 return list;
     }
 
-    public boolean registrar(Curso cur){
+    public boolean registrar(Matricula mat){
 	 Session session = HibernateUtil.openSession();	
 	 Transaction tran = null;	
 	 try {
 		 tran = session.getTransaction();
 		 tran.begin();                 
-		 session.saveOrUpdate(cur);		
+		 session.saveOrUpdate(mat);		
 		 tran.commit();                 
 	 } catch(Exception e) {
 		 if (tran!=null) {
@@ -57,23 +51,23 @@ public class CursoManager {
 	 return true;
     }    
     
-    public Curso buscarPorId(int id) {
-        Curso cur = null;
+    public Matricula buscarPorId(int id) {
+        Matricula mat = null;
         Transaction tran = null;
         Session session = HibernateUtil.openSession();
         try {
             tran = session.beginTransaction();
-            String queryString = "from Curso where id = :id";
+            String queryString = "from Matricula where id = :id";
             Query query = session.createQuery(queryString);
             query.setInteger("id", id);
-            cur = (Curso) query.uniqueResult();
+            mat = (Matricula) query.uniqueResult();
         } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
             session.flush();
             session.close();
         }
-        return cur;
+        return mat;
     }
    
     public boolean eliminar(int id) {
@@ -81,8 +75,8 @@ public class CursoManager {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Curso cur = (Curso) session.load(Curso.class, new Integer(id));
-            session.delete(cur);
+            Matricula mat = (Matricula) session.load(Matricula.class, new Integer(id));
+            session.delete(mat);
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {
