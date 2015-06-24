@@ -40,7 +40,7 @@ public class CursoServlet extends HttpServlet {
           String opt=request.getParameter("opt");
 
           if(opt.equals("Registrar")){
-            int id=Integer.parseInt(request.getParameter("txtidCurso"));
+            int id=Integer.parseInt(request.getParameter("txtidcurso"));
             String nome=request.getParameter("txtnome");
             
             
@@ -87,7 +87,7 @@ public class CursoServlet extends HttpServlet {
           }
           
           if(opt.equals("Eliminar")){
-              int id=Integer.parseInt(request.getParameter("id_pes"));
+              int id=Integer.parseInt(request.getParameter("id_cur"));
               
              try {        
                CursoManager curma = new CursoManager();

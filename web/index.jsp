@@ -44,17 +44,8 @@
                             <li class="active"><a  href="jsp/pessoa_list.jsp" class="menuitem">Pessoa</a></li>
                             <li class="active"><a  href="jsp/curso_list.jsp" class="menuitem">Curso</a></li>
                             <li class="active"><a  href="jsp/matricula_list.jsp" class="menuitem">Matricula</a></li>
-                            <li><a href="#contact">Notícias</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Serviços <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Matrícula</a></li>
-                                    <li><a href="#">Período Letivo</a></li>
-                                    <li><a href="#">Notas</a></li>
-                                    <li class="divider"></li>
-                                   
-                                </ul>
-                            </li>
+                            <li class="active"><a  href="jsp/nota_list.jsp" class="menuitem">Notas</a></li>
+                           
                         </ul>
                     </div>
                 </div>

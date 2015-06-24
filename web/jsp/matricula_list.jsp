@@ -29,10 +29,10 @@
                     <tr>
                         <td><%=u.getIdMatricula()%></td>
                         <td><%=u.getDataMatricula()%></td>
-                        <td><%=u.getIdClasse()%></td>
-                        <td><%=u.getIdPletivo()%></td>
-                        <td><%=u.getIdSituacao()%></td>
-                        <td><%=u.getIdUnidade()%></td>
+                        <td><%=u.getId_Classe()%></td>
+                        <td><%=u.getId_Pletivo()%></td>
+                        <td><%=u.getId_Situacao()%></td>
+                        <td><%=u.getId_Unidade()%></td>
 
                         <td><a href="javascript:fn_mostrar(<%=u.getIdMatricula()%>)" class="menuitem"><img src="resources/img/figuras/editar.png"></a></td>
                         <td><a href="javascript:fn_eliminar(<%=u.getIdMatricula()%>)" class="menuitem"><img src="resources/img/figuras/eliminar.png"></a></td>

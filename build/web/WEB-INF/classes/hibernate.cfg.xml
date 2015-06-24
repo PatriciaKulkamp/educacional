@@ -9,12 +9,10 @@
     <property name="hibernate.connection.password">84976005</property>
     <property name="show_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
-   
     <mapping class="edu.to.Pessoa" />
-    
-    
-  
-   
+    <mapping class="edu.to.Matricula" />   
+    <mapping class="edu.to.Curso" />  
+    <mapping class="edu.to.Nota" />  
 
   </session-factory>
 </hibernate-configuration>

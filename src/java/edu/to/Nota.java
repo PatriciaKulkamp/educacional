@@ -45,10 +45,22 @@ public class Nota implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "nota")
-    private BigInteger nota;
+    private Integer nota;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_disciplina")
+    private Integer idDisciplina;
     
     
-   
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_matricula")
+    private Integer idMatricula;
+
+     
 
     public Nota() {
     }
@@ -57,8 +69,17 @@ public class Nota implements Serializable {
         this.idNota = idNota;
     }
 
-    public Nota(Integer idNota, BigInteger nota) {
+    /**
+     *
+     * @param idNota
+     * @param idMatricula
+     * @param idDisciplina
+     * @param nota
+     */
+    public Nota(Integer idNota, Integer idMatricula, Integer idDisciplina,Integer nota) {
         this.idNota = idNota;
+        this.idMatricula = idMatricula;
+        this.idDisciplina = idDisciplina;
         this.nota = nota;
     }
 
@@ -66,15 +87,31 @@ public class Nota implements Serializable {
         return idNota;
     }
 
+    public Integer getIdDisciplina() {
+        return idDisciplina;
+    }
+
+    public void setIdDisciplina(Integer idDisciplina) {
+        this.idDisciplina = idDisciplina;
+    }
+
+    public Integer getIdMatricula() {
+        return idMatricula;
+    }
+
+    public void setIdMatricula(Integer idMatricula) {
+        this.idMatricula = idMatricula;
+    }
+
     public void setIdNota(Integer idNota) {
         this.idNota = idNota;
     }
 
-    public BigInteger getNota() {
+    public Integer getNota() {
         return nota;
     }
 
-    public void setNota(BigInteger nota) {
+    public void setNota(Integer nota) {
         this.nota = nota;
     }
 
@@ -102,7 +139,7 @@ public class Nota implements Serializable {
 
     @Override
     public String toString() {
-        return "edu.to.Nota idNota=" + idNota + " ]";
+        return "edu.to.Nota  idNota=" + idNota + " ]";
     }
     
 }

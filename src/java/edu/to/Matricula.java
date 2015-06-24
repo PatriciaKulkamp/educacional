@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Matricula.findAll", query = "SELECT m FROM Matricula m"),
+   // @NamedQuery(name = "Matricula.todas", query = "SELECT m.id_matricula, m.data_matricula, pl.ano as ano, m.id_unidade, u.nome as nome_unidade,m.id_classe, c.nome as nome_classe,m.id_serie, se.nome as nome_fase,m.id_situacao, s.nome as situacao_matricula FROM matricula AS m LEFT JOIN periodo_letivo AS pl ON (pl.id_pletivo = m.id_pletivo) LEFT JOIN unidade_escolar AS u ON (u.id_unidade = m.id_unidade) LEFT JOIN classe AS c ON (c.id_classe = m.id_classe) LEFT JOIN serie AS se ON (se.id_serie = m.id_serie) LEFT JOIN situacao AS s ON (s.id_situacao = m.id_situacao)"),
     @NamedQuery(name = "Matricula.findByIdMatricula", query = "SELECT m FROM Matricula m WHERE m.idMatricula = :idMatricula"),
     @NamedQuery(name = "Matricula.findByDataMatricula", query = "SELECT m FROM Matricula m WHERE m.dataMatricula = :dataMatricula"),
 })
@@ -51,29 +52,36 @@ public class Matricula implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "data_matricula")
-    @Temporal(TemporalType.DATE)
     private String dataMatricula;
     
   
    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_Classe")
+    private Integer id_Classe;
     
-    @JoinColumn(name = "id_classe", referencedColumnName = "id_classe")
-    @ManyToOne(optional = false)
-    private Integer idClasse;
-    
-    @JoinColumn(name = "id_pletivo", referencedColumnName = "id_pletivo")
-    @ManyToOne(optional = false)
-    private Integer idPletivo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_Pletivo")
+    private Integer id_Pletivo;
     
     
     
-    @JoinColumn(name = "id_situacao", referencedColumnName = "id_situacao")
-    @ManyToOne(optional = false)
-    private Integer idSituacao;
+   @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_Situacao")
+    private Integer id_Situacao;
     
-    @JoinColumn(name = "id_unidade", referencedColumnName = "id_unidade")
-    @ManyToOne(optional = false)
-    private Integer idUnidade;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id_Unidade")
+    private Integer id_Unidade;
+    
     
     
     public Matricula() {
@@ -83,13 +91,13 @@ public class Matricula implements Serializable {
         this.idMatricula = idMatricula;
     }
 
-    public Matricula(Integer idMatricula, String dataMatricula, Integer idClasse, Integer idPletivo, Integer idSituacao, Integer idUnidade) {
+    public Matricula(Integer idMatricula, String dataMatricula, Integer id_Classe, Integer id_Pletivo, Integer id_Situacao, Integer id_Unidade) {
         this.idMatricula = idMatricula;
         this.dataMatricula = dataMatricula;
-        this.idClasse = idClasse;
-        this.idPletivo = idPletivo;
-        this.idSituacao = idSituacao;
-        this.idUnidade = idUnidade;
+        this.id_Classe = id_Classe;
+        this.id_Pletivo = id_Pletivo;
+        this.id_Situacao = id_Situacao;
+        this.id_Unidade = id_Unidade;
         
        
     }
@@ -112,38 +120,38 @@ public class Matricula implements Serializable {
 
     
 
-    public Integer getIdClasse() {
-        return idClasse;
+    public Integer getId_Classe() {
+        return id_Classe;
     }
 
-    public void setIdClasse(Integer idClasse) {
-        this.idClasse = idClasse;
+    public void setId_Classe(Integer id_Classe) {
+        this.id_Classe = id_Classe;
     }
 
-    public Integer getIdPletivo() {
-        return idPletivo;
+    public Integer getId_Pletivo() {
+        return id_Pletivo;
     }
 
-    public void setIdPletivo(Integer idPletivo) {
-        this.idPletivo = idPletivo;
+    public void setId_Pletivo(Integer id_Pletivo) {
+        this.id_Pletivo = id_Pletivo;
     }
 
    
 
-    public Integer getIdSituacao() {
-        return idSituacao;
+    public Integer getId_Situacao() {
+        return id_Situacao;
     }
 
-    public void setIdSituacao(Integer idSituacao) {
-        this.idSituacao = idSituacao;
+    public void setId_Situacao(Integer id_Situacao) {
+        this.id_Situacao = id_Situacao;
     }
 
-    public Integer getIdUnidade() {
-        return idUnidade;
+    public Integer getId_Unidade() {
+        return id_Unidade;
     }
 
-    public void setIdUnidade(Integer idUnidade) {
-        this.idUnidade = idUnidade;
+    public void setId_Unidade(Integer id_Unidade) {
+        this.id_Unidade = id_Unidade;
     }
 
    

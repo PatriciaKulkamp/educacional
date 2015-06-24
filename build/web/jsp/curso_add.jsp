@@ -1,8 +1,4 @@
-<%-- 
-    Document   : curso_add
-    Created on : 16/06/2015, 16:05:39
-    Author     : Pati
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="edu.to.Curso"%>
 <%@page import="edu.manager.CursoManager"%>
@@ -14,7 +10,7 @@
         opt = "Atualizar";
         out.print("<h3>Editar Curso</h3>");
         CursoManager curma = new CursoManager();
-        cur = curma.buscarPorId(id);
+        cur= curma.buscarPorId(id);
     } else {
         opt = "Registrar";
         out.print("<h3>Incluir Curso</h3>");
@@ -24,14 +20,14 @@
 
 <div class="navbar navbar-fixed-center">
     <div class="navbar-inner">
-        <form method="POST" action="PessoaServlet" id="formulario" class="form-inline" role="form"> 
+        <form method="POST" action="CursoServlet" id="formulario" class="form-inline" role="form"> 
             <input type="hidden" name="opt" value="<%=opt%>"/>
             <input type="hidden" name="id" value="<%=id%>"/>
             
             <div class="control-group">
-                <label class="control-label">Curso: </label>
+                <label class="control-label">Id: </label>
                 <div class="controls">
-                    <input type="text" name="txtidCurso" value="<%=(cur != null) ? cur.getIdCurso() : ""%>" placeholder="ID"/>
+                    <input type="text" name="txtidCurso" value="<%=(cur != null) ? cur.getIdCurso(): ""%>" placeholder="ID"/>
                 </div>
             </div>
 
@@ -39,11 +35,11 @@
             <div class="control-group">
                 <label class="control-label">Nome: </label>
                 <div class="controls">
-                    <input type="text" name="txtnome" value="<%=(cur != null) ? cur.getNome() : ""%>" placeholder="Nome"/>
+                    <input type="text" name="txtnome" value="<%=(cur != null) ? cur.getNome(): ""%>" placeholder="Curso"/>
                 </div>
             </div>
-            
-            <div class="control-group">
+           
+                <div class="control-group">
                 <div class="controls">
                     <button type="submit" class="btn btn-primary"><%=opt%></button>
                 </div>
@@ -65,10 +61,11 @@
                 txtnome: {
                     minlength: 3,
                     required: true  
+              
                 },
             messages: {
                 txtnome: {
-                    required: "É necessário registrar o o nome do curso",
+                    required: "É necessário registrar o o nome da curso",
                     minlength: jQuery.format("São necessários {0} caracteres!")
                 }
             },
@@ -83,7 +80,7 @@
                         .removeClass('error').addClass('success');
             },
             submitHandler: function () {
-                msg = confirm('\Deseja realmente registrar  curso?');
+                msg = confirm('\Deseja realmente registrar  Curso?');
                 if (msg) {
                     $.ajax({
                         type: 'POST',

@@ -43,27 +43,27 @@
             <div class="input-group input-group-lgp">
                 <label class="sr-only" for="inputnome">Classe :</label>
                 <div class="controls">
-                    <input class="form-control input-lg" type="text" name="txtidClasse" value="<%=(mat != null) ? mat.getIdClasse(): ""%>" placeholder="Classe"/>
+                    <input class="form-control input-lg" type="text" name="txtid_Classe" value="<%=(mat != null) ? mat.getId_Classe(): ""%>" placeholder="Classe"/>
                 </div>
             </div>   
             <div class="control-group">
                 <label class="control-label">Periodo Letivo:</label>
                 <div class="controls">
-                    <input type="text" name="txtidPletivo" value="<%=(mat != null) ? mat.getIdPletivo(): ""%>" placeholder="Periodo Letivo" />
+                    <input type="text" name="txtid_Pletivo" value="<%=(mat != null) ? mat.getId_Pletivo(): ""%>" placeholder="Periodo Letivo" />
                 </div>
         
            
     <div class="control-group">
                 <label class="control-label">Situação:</label>
                 <div class="controls">
-                    <input type="text" name="txtidSituacao" value="<%=(mat != null) ? mat.getIdSituacao(): ""%>" placeholder="Situação" />
+                    <input type="text" name="txtid_Situacao" value="<%=(mat != null) ? mat.getId_Situacao(): ""%>" placeholder="Situação" />
                 </div>
             </div>
                     </div>
                <div class="control-group">
                 <label class="control-label">Unidade:</label>
                 <div class="controls">
-                    <input type="text" name="txtidUnidade" value="<%=(mat != null) ? mat.getIdUnidade(): ""%>" placeholder="Unidade" />
+                    <input type="text" name="txtid_Unidade" value="<%=(mat != null) ? mat.getId_Unidade(): ""%>" placeholder="Unidade" />
                 </div>
             </div>
            
@@ -92,26 +92,21 @@
                 txtdataMatricula: {
                     minlength: 3,
                     required: true  
-                txtdataTransferencia: {
+                txtid_Classe: {
                     minlength: 2,
                     required: true,
                     digits: true
                 },
-                txtidClasse: {
-                    minlength: 2,
-                    required: true,
-                    digits: true
-                },
-                txtidPletivo {
+                txtid_Pletivo {
                     minlength: 2,
                     required: true
                 },
-                txtidSituacao: {
+                txtid_Situacao: {
                     minlength: 2,
                     required: true,
                     digits: true
                 },
-                txtidUnidade: {
+                txtid_Unidade: {
                     minlength: 2,
                     required: true,
                     digits: true

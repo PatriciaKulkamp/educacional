@@ -49,9 +49,7 @@ public class Curso implements Serializable {
     @Column(name = "nome")
     private String nome;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCurso")
-    private Collection<Classe> classeCollection;
-    
+   
     
 
     public Curso() {
@@ -81,18 +79,7 @@ public class Curso implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    @XmlTransient
-    public Collection<Classe> getClasseCollection() {
-        return classeCollection;
-    }
-
-    public void setClasseCollection(Collection<Classe> classeCollection) {
-        this.classeCollection = classeCollection;
-    }
-
     
-
     @Override
     public int hashCode() {
         int hash = 0;
